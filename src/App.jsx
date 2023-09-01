@@ -248,19 +248,23 @@ function changeSoundState(){
         </div>
 
         <div className='control-buttons'>
-
+        <div className='ctrl-btn-container'>
           <button className="restart-btn" onClick={restart}>
             <img src={'/restart-icon.png'} alt="Restart" />
           </button>
-
+</div>
           <button onClick={changeMod}>
             <span>{currentModPlayers}</span>
           </button>
 
-          <button className={`restart-btn ${soundIconClass}`} onClick={changeSoundState}>
-          <div></div>
+<div className={`ctrl-btn-container ${soundIconClass}`}>
+
+          <button className='restart-btn'  onClick={changeSoundState}>
+          
             <img src="/Sound-icon.png" alt="Settings" />
           </button>
+          <div></div>
+          </div>
         </div>
       </div>
 
