@@ -51,7 +51,7 @@ function App() {
 
       newBoard[index] = currentPlayer;
 
-
+      setBoard(newBoard)
       if (checkWinner(newBoard, currentPlayer)) {
 
         setShowConfetti(true);
@@ -63,19 +63,8 @@ function App() {
         setWinner(currentPlayer)
         
        playSound(playVictorySound)
+      return
       }
-
-
-
-      console.log(currentPlayer, "player2")
-      if (singlePlayer && handleCount < 4) {
-
-        computerMove(newBoard)
-
-      }
-      setBoard(newBoard)
-
-      console.log(currentPlayer)
 
       newBoard.every((cell) => cell) && (
 
@@ -84,9 +73,22 @@ function App() {
           draws: prevPoints.draws + 1
         })))
       newBoard.every((cell) => cell) && (
-
+  
         setWinner("Draw!")
       )
+      
+      
+      // console.log(currentPlayer, "player2")
+      if (singlePlayer && handleCount < 4) {
+
+        computerMove(newBoard)
+
+      }
+      
+
+      console.log(currentPlayer)
+
+
 
       !singlePlayer && setCurrentPlayer(currentPlayer === player1 ? player2 : player1)
 
@@ -113,19 +115,20 @@ playSound(playPopSound)
       newBoard[numCas] = computer;
 
 
-      if (checkWinner(newBoard, currentPlayer)) {
+      if (checkWinner(newBoard, computer)) {
 
         setShowConfetti(true);
         setPoints((prevPoints) => ({
           ...prevPoints,
-          [currentPlayer]: prevPoints[currentPlayer] + 1
+          [computer]: prevPoints[computer] + 1
         }));
 
-        setWinner(currentPlayer)
+        setWinner(computer)
         //console.log(points)
       }
 
     }
+
 
   }
 
@@ -239,7 +242,7 @@ function changeSoundState(){
             return renderCell(cell, index)
           })}
         </div>
-        {winner && <WinnerMessagePop winnerPlayer={winner} style={playerCell} />}
+        {<WinnerMessagePop winnerPlayer={winner} style={playerCell}  />}
         <div className={classCurrentPlayer}>
           <div className={`current-back ${classCurrentPlayer}`}></div>
 

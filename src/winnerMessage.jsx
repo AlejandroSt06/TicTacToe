@@ -1,21 +1,21 @@
 function WinnerMessagePop(props){
-
+const winnerMessageBody = props.winnerPlayer !== "Draw!" && "wins" 
+const classPopUp = props.winnerPlayer && "popup-show"
     return(
 <>
 
-<div class="overlay" id="overlay"></div>
 
 
-    <div class="popup" id="popup">
 
+    <div className={`popup ${classPopUp}`} id="popup">
         <div class="popup-content">
             <h2 className={props.style}>{props.winnerPlayer}</h2>
-            <p>Wins!</p>
+           <p className="win-ms-par">{winnerMessageBody}</p>
      
         </div>
     </div>
 
-
+    <div className="overlay" id="overlay"></div>
 
 </>
 
