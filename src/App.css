@@ -305,7 +305,7 @@ text-align: center;}
 
     width: 65%;
 
-    height: 100vh;
+
 
   }
 
@@ -318,7 +318,7 @@ text-align: center;}
 
     width: 90%;
 
-    height: 100vh;
+    max-height: 650px;
 
   }
   .board {
