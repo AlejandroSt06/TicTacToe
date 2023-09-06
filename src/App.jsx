@@ -79,9 +79,11 @@ function App() {
       
       
       // console.log(currentPlayer, "player2")
+         
       if (singlePlayer && handleCount < 4) {
 
-        computerMove(newBoard)
+  
+          computerMove(newBoard);
 
       }
       
